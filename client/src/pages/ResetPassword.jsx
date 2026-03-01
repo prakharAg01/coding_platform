@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import "../styles/ResetPassword.css";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { Navigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -40,18 +39,18 @@ const ResetPassword = () => {
 
   return (
     <>
-      <div className="reset-password-page">
-        <div className="reset-password-container">
-          <h2>Reset Password</h2>
-          <p>Enter your new password below.</p>
-          <form className="reset-password-form" onSubmit={handleResetPassword}>
+      <div className="flex justify-center items-center min-h-screen bg-transparent">
+        <div className="bg-white/90 p-10 rounded-xl shadow-xl max-w-md w-full text-center">
+          <h2 className="text-3xl mb-2">Reset Password</h2>
+          <p className="text-base mb-5 text-gray-600">Enter your new password below.</p>
+          <form onSubmit={handleResetPassword} className="text-left">
             <input
               type="password"
               placeholder="New Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="reset-input"
+              className="w-full p-2.5 mb-5 border border-gray-300 rounded focus:outline-none focus:border-brand-green"
             />
             <input
               type="password"
@@ -59,9 +58,12 @@ const ResetPassword = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="reset-input"
+              className="w-full p-2.5 mb-5 border border-gray-300 rounded focus:outline-none focus:border-brand-green"
             />
-            <button type="submit" className="reset-btn">
+            <button 
+              type="submit"
+              className="w-full p-3 text-base border-none rounded bg-brand-green text-white cursor-pointer transition-colors hover:bg-brand-green-dark"
+            >
               Reset Password
             </button>
           </form>

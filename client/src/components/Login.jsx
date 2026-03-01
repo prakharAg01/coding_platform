@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -35,26 +35,33 @@ const Login = () => {
   return (
     <>
       <form
-        className="auth-form"
+        className="text-left"
         onSubmit={handleSubmit((data) => handleLogin(data))}
       >
-        <h2>Login</h2>
+        <h2 className="text-center text-2xl font-bold mb-5">Login</h2>
         <input
           type="email"
           placeholder="Email"
           required
           {...register("email")}
+          className="w-full p-2.5 mb-4 border border-gray-300 rounded focus:outline-none focus:border-brand-green"
         />
         <input
           type="password"
           placeholder="Password"
           required
           {...register("password")}
+          className="w-full p-2.5 mb-4 border border-gray-300 rounded focus:outline-none focus:border-brand-green"
         />
-        <p className="forgot-password">
-          <Link to={"/password/forgot"}>Forgot your password?</Link>
+        <p className="text-right my-5 text-base text-brand-green">
+          <Link to={"/password/forgot"} className="hover:underline">Forgot your password?</Link>
         </p>
-        <button type="submit">Login</button>
+        <button 
+          type="submit"
+          className="w-full p-3 bg-brand-green text-white border-none rounded text-base cursor-pointer transition-colors hover:bg-brand-green-dark"
+        >
+          Login
+        </button>
       </form>
     </>
   );
